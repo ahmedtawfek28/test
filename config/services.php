@@ -46,7 +46,7 @@ return [
     'google' => [
         'client_id' => env('Google_CLIENT_ID'),
         'client_secret' => env('Google_CLIENT_SECRET'),
-        'redirect' => 'http://127.0.0.1:8000/auth/google/callback',
+        'redirect' => 'http://socialite.tawfek.tk/auth/google/callback',
     ],
 
 ];
