@@ -37,10 +37,35 @@
         chart.draw(data, options);
       }
     </script>
+     <script type="text/javascript">
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'التاريخ');
+        data.addColumn('number', 'العدد');
+        data.addRows([
+          ['طلبات جديدة',{v: 255, f: '255'}],
+          ['طلبات تحت الاجراء',{v: 3, f: '3'}],
+          ['طلبات ملغية',{v: 98, f: '98'}],
+          ['طلبات تحت التوصيل',{v: 0, f: '0'}],
+          ['تم التسليم',{v: 19, f: '19'}],
+          ['طلبات سلمت جزئيا',{v: 1, f: '1'}],
+          ['المجموع الكلي',{v: 358, f: '358'}],
+         
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(data, {showRowNumber: true, width: '50%', height: '50%'});
+      }
+    </script>
   </head>
 
   <body>
     <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
+    <div style="position: absolute;" id="chart_div"></div>
+    <div dir ="rtl" id="table_div"></div>
   </body>
 </html>
