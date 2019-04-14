@@ -14,9 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/chart', function () {
-    return view('chart');
-});
+// Route::get('/chart', function () {
+//     return view('chart');
+// });
+Route::get('/chart', 'ChartController@index')->name('chart');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

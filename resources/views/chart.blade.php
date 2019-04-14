@@ -20,11 +20,8 @@
         data.addColumn('string', 'Topping');
         data.addColumn('number', 'Slices');
         data.addRows([
-          ['TodayOrder without Comments (255)', 255],
-          ['Today Order Not Delivered (3)', 3],
-          ['All Deleted Orders (98)', 98],
-          ['All Accepted (19)', 19],
-          ['Partial Deliverd (1)', 1]
+          ['Login with Google ({{$usersNotGoogle}})', {{$usersNotGoogle}}],
+          ['Login without Google ({{$usersGoogle}})', {{$usersGoogle}}]
         ]);
 
         // Set chart options
@@ -43,16 +40,13 @@
 
       function drawTable() {
         var data = new google.visualization.DataTable();
-        data.addColumn('string', 'التاريخ');
+        data.addColumn('string', 'النوع');
         data.addColumn('number', 'العدد');
         data.addRows([
-          ['طلبات جديدة',{v: 255, f: '255'}],
-          ['طلبات تحت الاجراء',{v: 3, f: '3'}],
-          ['طلبات ملغية',{v: 98, f: '98'}],
-          ['طلبات تحت التوصيل',{v: 0, f: '0'}],
-          ['تم التسليم',{v: 19, f: '19'}],
-          ['طلبات سلمت جزئيا',{v: 1, f: '1'}],
-          ['المجموع الكلي',{v: 358, f: '358'}],
+          ['مستخدمين لجوجل مع التسجيل العادي',{v: {{$usersGooglejson}}, f: '{{$usersGooglejson}}'}],
+          ['مستخدمين لا يستخدموا جوجل للتسجيل',{v: {{$usersNotGoogle}}, f: '{{$usersNotGoogle}}'}],
+          ['مستخدمين جوجل للتسجيل',{v: {{$usersGoogle}}, f: '{{$usersGoogle}}'}],
+          ['عدد كل المستخدمين',{v: {{$users}}, f: '{{$users}}'}],
          
         ]);
 
@@ -65,6 +59,7 @@
 
   <body>
     <!--Div that will hold the pie chart-->
+  {{-- <h1>{{$users}}</h1> --}}
     <div style="position: absolute;" id="chart_div"></div>
     <div dir ="rtl" id="table_div"></div>
   </body>
